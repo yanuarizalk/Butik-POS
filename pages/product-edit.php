@@ -310,7 +310,7 @@ $(document).ready(function() {
     $('input[name="nama_struk"]').val('<?php echo $val[0]['nama_struk']; ?>');
     $('input[name="harga_pokok"]').val(formatDecToCurrency(<?php echo $val[0]['harga_pp']; ?>));
     $('input[name="harga_ecer"]').val(formatDecToCurrency('<?php echo $val[0]['harga_ecer']; ?>'));
-    $('textarea[name="keterangan"]').val('<?php echo preg_replace('/(\r\n)|\r|\n/', '\\n', $val[0]['keterangan']); ?>');
+    $('textarea[name="keterangan"]').val('<?php echo nlTo($val[0]['keterangan'], '\\n')/*preg_replace('/(\r\n)|\r|\n/', '\\n', $val[0]['keterangan'])*/; ?>');
 
 		let grosirParser = '<?php echo $val[0]['harga_grosir']; ?>';
 		grosirParser = JSON.parse(grosirParser);

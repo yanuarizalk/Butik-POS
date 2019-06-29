@@ -16,6 +16,9 @@
 			return htmlspecialchars($txt);
 	}
 
+	function nlTo($txt, $replace) {
+		return preg_replace('/(\r\n)|\r|\n/', $replace, $txt);
+	}
 
 
 ?>

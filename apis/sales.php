@@ -371,6 +371,70 @@ if (isset($_GET['act'])) {
 		));
 
 		break;
+	case 'detail-fetch':
+		//errorInvalid();
+		if (!isset($_POST['id']))
+			errorInvalid();
+		//not allowed for zero id too
+		$id = intval($_POST['id']) ?: errorInvalid();
+		$q = 'SELECT id_toko AS toko, spg.nama AS nama_spg, items, sales.dt, nama_konsumen, '.
+			'sales.keterangan, payment, total_sale, total_transaksi FROM sales '.
+			'LEFT JOIN spg ON id_spg = spg.id WHERE sales.id = :id_sales';
+		$db['query'] = $db['con'] -> prepare($q);
+		if (!($db['query']) -> execute([
+			':id_sales' => $id
+		])) errorQuery($db['query'] -> errorInfo());
+		if ($db['query'] -> rowCount() <= 0) send([
+			'status' => 'error',
+			'desc' => 'Transaksi Penjualan tidak ditemukan'
+		]);
+		$resSales = $db['query'] -> fetchAll(PDO::FETCH_ASSOC)[0];
+		$q = 'SELECT kas_trans.act, uang, kas_trans.keterangan, kas.nama FROM kas_trans INNER JOIN kas ON '.
+			'id_kas = kas.id WHERE id_sales = :id_sales';
+		$db['query'] = $db['con'] -> prepare($q);
+		if (!($db['query']) -> execute([
+			':id_sales' => $id
+		])) errorQuery($db['query'] -> errorInfo());
+		$transaksi = [];
+		$resTrans = $db['query'] -> fetchAll(PDO::FETCH_ASSOC);
+		foreach ($resTrans as $key => $val) {
+			array_push($transaksi, [
+				$val['nama'], $val['keterangan'],
+				$val['uang'], $val['act']
+			]);
+		}
+		$items = json_decode($resSales['items'], true);
+		$q = 'SELECT produk.id, produk.nama_struk, '.
+				'produk_variant.nama AS nama_variant FROM produk_variant INNER JOIN produk '.
+				'ON id_produk = produk.id WHERE produk_variant.id = :id_variant';
+		$db['query'] = $db['con'] -> prepare($q);
+		foreach ($items as $key => $val) {
+			if (!($db['query']) -> execute([
+				':id_variant' => $val[0]
+			])) errorQuery($db['query'] -> errorInfo());
+			$db['res'] = $db['query'] -> fetchAll(PDO::FETCH_ASSOC)[0];
+			$items[$key][3] = out($db['res']['nama_struk']).'('.out($db['res']['nama_variant']).')';
+			$items[$key][0] = $db['res']['id'];
+		}
+		switch ($resSales['toko']) {
+			case ID_ONLINE: $resSales['toko'] = 'Online'; break;
+			case ID_BUTIK: $resSales['toko'] = 'Butik'; break;
+			case ID_BAZAR_A: $resSales['toko'] = 'Bazar A'; break;
+			case ID_BAZAR_B: $resSales['toko'] = 'Bazar B'; break;
+			case ID_BAZAR_C: $resSales['toko'] = 'Bazar C'; break;
+		}
+		$result = $resSales;
+		$result['nama_spg'] = out($result['nama_spg']);
+		$result['nama_konsumen'] = out($result['nama_konsumen']);
+		$result['keterangan'] = nlTo(out($result['keterangan']), '<br>');
+		$result['dt'] = date('d M Y - H:i', $result['dt']);
+		$result['transaksi'] = $transaksi;
+		$result['items'] = $items;
+		send([
+				'status' => 'success',
+				'result' => $result
+		]);
+		break;
 	default:
 			errorInvalid();
 	}

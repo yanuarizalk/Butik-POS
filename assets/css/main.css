@@ -447,6 +447,9 @@ input.search.active {
 	font-weight: 300;
 	font-size: 26px;
 }
+.text-info sub {
+	font-size: 14px;
+}
 
 .nav-inside {
 	width: 100%;
@@ -601,6 +604,7 @@ input.search.active {
 	border-collapse: collapse;
 	color: var(--text-semi);
 	text-align: left;
+	font-size: 12px;
 }
 .commonTable tr {
 	border: 1px solid rgb(235, 235, 235);
@@ -608,11 +612,7 @@ input.search.active {
 	vertical-align: middle;
 }
 .commonTable tr td {
-	font-size: 13px;
 	padding: 5px;
-}
-.commonTable tr th {
-	font-size: 13px;
 }
 .preTable tr td.header {
 	background-color: var(--main-active);
@@ -692,6 +692,10 @@ input.search.active {
 	min-width: 300px;
 	min-height: 125px;
 	text-align: center;
+}
+.modal.modal-big {
+	width: 60%;
+	max-width: none;
 }
 .modal .modal-head h2, .modal .modal-head h4 {
 	text-align: left;
