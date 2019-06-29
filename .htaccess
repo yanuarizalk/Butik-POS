@@ -1,0 +1,22 @@
+Options +FollowSymLinks
+
+RewriteEngine on
+
+RewriteCond %{QUERY_STRING} page=assets   [NC]
+RewriteRule ^   %{REQUEST_URI}  [L,R=307,QSD]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^assets$     assets/            [L,NC,QSD]
+RewriteRule ^assets/(.*)$    assets/$1      [L,NC,QSD]
+RewriteRule ^logs/(.*)$	-	[F,L]
+
+#RewriteCond %{QUERY_STRING} act=(.*)
+RewriteRule ^([_a-zA-Z]+)/$ index.php?page=$1  [NC]
+RewriteRule ^([/_a-zA-Z]+)$ index.php?page=$1 [NC]
+RewriteRule ^([/_a-zA-Z]+)/([0-9]+)$ index.php?page=$1&id=$2    [NC]
+RewriteRule ^([/_a-zA-Z]+)/([0-9]+)/$ index.php?page=$1&id=$2   [NC]
+
+ErrorDocument 403 http://yanz.dev.com:8080/POS/forbidden/
+ErrorDocument 404 http://yanz.dev.com:8080/POS/NotFound/
+
