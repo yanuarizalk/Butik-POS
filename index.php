@@ -7,26 +7,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gravis</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_URL.PATH_CSS; ?>jquery.dataTables.min.css"-->
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_URL.PATH_CSS; ?>dataTables.checkboxes.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_URL.PATH_CSS; ?>jquery.modal.min.css">
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_URL.PATH_CSS; ?>datepicker.min.css">
-    <!--link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_URL.PATH_CSS; ?>iziModal.min.css"-->
-    <link rel="stylesheet" type="text/css" media="screen" href="<?php echo BASE_URL.PATH_CSS; ?>main.css">
-    <!--Issue 4350, ojo nganggo iki
-    	<script src="<?php echo BASE_URL.PATH_JS; ?>jquery-3.4.0.min.js"></script>-->
-    <script src="<?php echo BASE_URL.PATH_JS; ?>jquery.min.js"></script>
-    <script src="<?php echo BASE_URL.PATH_JS; ?>jquery.dataTables.min.js"></script>
-    <script src="<?php echo BASE_URL.PATH_JS; ?>dataTables.checkboxes.min.js"></script>
-    <script src="<?php echo BASE_URL.PATH_JS; ?>jquery.modal.min.js"></script>
-    <script src="<?php echo BASE_URL.PATH_JS; ?>datepicker.min.js"></script>
-    <script src="<?php echo BASE_URL.PATH_JS; ?>i18n/datepicker.en.js"></script>
-    <!--script src="<?php echo BASE_URL.PATH_JS; ?>iziModal.min.js"></script-->
-    <script src="<?php echo BASE_URL.PATH_JS; ?>main.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Gravis</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<?php
+		include 'includes.php';
+	?>
 </head>
 <body>
     <div class="navbar">

@@ -366,26 +366,26 @@ $(document).ready(function() {
     ?>
 
     $('#editor').submit(function(ev) {
-        ev.preventDefault();
-				preSubmit();
-        $.ajax({
-            url: url,
-            method: 'POST',
-						processData: false,
-						contentType: false,
-            data: submit,
-            dataType: 'json',
-            success: function(data, status) {
-                if (data.status == 'success') {
-                    cbSuccess(data.id);
-                } else if (data.status == 'error') {
-                    showAlert('', data.desc);
-                    console.log(data.msg);
-                }
-            }, error: function(xhr, status) {
+			ev.preventDefault();
+			preSubmit();
+			$.ajax({
+				url: url,
+				method: 'POST',
+				processData: false,
+				contentType: false,
+				data: submit,
+				dataType: 'json',
+				success: function(data, status) {
+						if (data.status == 'success') {
+								cbSuccess(data.id);
+						} else if (data.status == 'error') {
+								showAlert('', data.desc);
+								console.log(data.msg);
+						}
+				}, error: function(xhr, status) {
 
-            }
-        });
+				}
+			});
     });
 });
 </script>

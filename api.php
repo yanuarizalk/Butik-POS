@@ -78,26 +78,28 @@
 	}*/
 
 	if (isset($_GET['data'])) {
-			switch (strtolower($_GET['data'])) {
-					case 'admins':
-							include 'apis/admin.php'; break;
-					case 'sales':
-							include 'apis/sales.php'; break;
-					case 'buku_kas':
-							include 'apis/cashbook.php'; break;
-					case 'spg':
-							include 'apis/spg.php'; break;
-					case 'product_group':
-							include 'apis/product_group.php'; break;
-					case 'product_inventory':
-							include 'apis/product_inventory.php'; break;
-					case 'product':
-							include 'apis/products.php'; break;
-					case 'variant':
-							include 'apis/variant.php'; break;
-					default:
-					errorInvalid();
-			}
+		switch (strtolower($_GET['data'])) {
+			case 'admins':
+				include 'apis/admin.php'; break;
+			case 'stats':
+				include 'apis/stats.php'; break;
+			case 'sales':
+				include 'apis/sales.php'; break;
+			case 'buku_kas':
+				include 'apis/cashbook.php'; break;
+			case 'spg':
+				include 'apis/spg.php'; break;
+			case 'product_group':
+				include 'apis/product_group.php'; break;
+			case 'product_inventory':
+				include 'apis/product_inventory.php'; break;
+			case 'product':
+				include 'apis/products.php'; break;
+			case 'variant':
+				include 'apis/variant.php'; break;
+			default:
+			errorInvalid();
+		}
 	}
 
 ?>

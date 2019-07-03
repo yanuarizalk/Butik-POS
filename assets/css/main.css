@@ -175,7 +175,7 @@ ul.tab {
 	color: var(--text-orange);
 	border-bottom: 1px dotted var(--text-orange);
 	padding: 5px;
-	margin-bottom: 5px;
+	margin-bottom: 10px;
 }
 .page > h1, .page > h3, .page > h4, .page > h5 {
 	color: var(--text-orange);
