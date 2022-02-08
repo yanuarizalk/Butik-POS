@@ -1,0 +1,40 @@
+registrasi disesuaikan dengan plan awal ✔️
+Invoice dimulai dari 01 dan diganti Guest Folio ✔️
+jam cek in pada menu cek in kenapa selisih 2 jam ✔️
+tambahkan fitur edit harga kamar juga di menu kamar -> Lihat Kamar ---- ✔️
+Invoice guest folio (pdf) disempurnakan sesuai nama hotel ✔️
+ubah header website dengan nama hotel yang asli (di bagian login juga) ✔️
+logo hotel yang sudah dibuat , dipakai ✔️
+topbar.php - edit font Riyadi Palace dan Riyadi Palace Hotel menjadi Citadel Std Regular ✔️
+Tambahkan satu fitur untuk memilih multiple kamar dengan satu nama yang bertanggung jawab ------ ✔️
+charge to dan alamat kabupaten pada transaksi-tamu.php tidak terbaca ✔️
+format tanggal check in pada invoice disamakan dengan tanggal checkout ✔️
+fccs diselesaikan hari ini ✔️
+saat submit di fccs , value dikembalikan seperti semula ✔️
+buat menu guest folio's untuk menampilkan semua data tamu checkout ✔️
+-nomor_invoice 
+-nama_tamu
+-jumlah_tamu
+-tgl cekin
+-tgl cekout
+-total_biaya_kamar
+-total_biaya_layanan
+-grand_total
+#diberi print
+Beri fitur UPDATING di checkout ✔️
+
+
+nomor telpon dihilangkan pada cetak invoice ✔️
+PPn dihilangkan (dirumus langsung di codingan) ✔️
+Room type diganti nomor kamar ✔️
+harga pada checkout tidak sesuai dengan total ✔️
+beri keterangan harga sudah termasuk PPN ✔️ 
+
+- room grouping bill nya 1 saja
+- tambah deposit
+- checkout dibuat per tanggal
+- format tanggal co dibuat dd-mm-yy ✔️
+- laundry dan dryclean jadi 1 ✔️
+- tambah 1 lagi menu di room service. OTHERS. Harga diisi sendiri
+- today belum sesuai tanggal checkin (28 feb - 1 Maret) ✔️
+- harga per malam bukan perhari ✔️
